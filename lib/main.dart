@@ -22,17 +22,19 @@ void main() {
 }
 
 
+
+
+
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-        visualDensity: VisualDensity.adaptivePlatformDensity,
-      ),
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
+
+      title: 'Game of words',
+
+      home: MyHomePage(title: 'Home Page'),
+      debugShowCheckedModeBanner: false,
     );
   }
 }
@@ -54,7 +56,8 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   void initState() {
-    list = ["Empty"];
+    SystemChrome.setEnabledSystemUIOverlays([]);
+    list = ["There", "will     be", "result!", "Please, try to do something!"];
   }
 
   void pressButton(String url) async {
@@ -72,96 +75,271 @@ class _MyHomePageState extends State<MyHomePage> {
   Expanded _buildButtons(){
         return Expanded(
         child:
-          ListView(
+          GridView.count(
+            crossAxisCount: 2,
+            childAspectRatio: 2.0,
+            shrinkWrap: true,
             children: [
               Card(
-                color: Colors.limeAccent,
-                child: ListTile(
-                  title: Text('Adj & Noun'),
-                  subtitle: Text('Get random pair adjectives & nouns'),
+                shadowColor: Colors.white,
+                color: Colors.blue,
+                child:
+                Center(
+                  child:
+                ListTile(
+                  title: Stack(
+                    children: <Widget>[
+                      Text("Adj & Noun",
+                        style: TextStyle(
+                          foreground: Paint()
+                            ..style = PaintingStyle.stroke
+                            ..strokeWidth = 2
+                            ..color = Colors.blue,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 20,
+                        ),
+                      ),
+                      Text(
+                        "Adj & Noun",
+                        style: TextStyle(
+                          fontSize: 20,
+                          color:  Colors.white,
+                        ),
+                      )
+                    ],
+                  ),
+                  subtitle: Text('Get pairs of adjectives & nouns'),
                   onTap: () => pressButton("/adj&noun/"),
               ),
-            ),
+            ),),
               Card(
-                color: Colors.yellowAccent,
-                child: ListTile(
-                  title: Text('Verb & Noun'),
-                  subtitle: Text('Get random pair verbs & nouns'),
+                shadowColor: Colors.white,
+                color: Colors.blue,
+                child:
+                Center(
+                  child:
+                ListTile(
+                  title: Stack(
+                    children: <Widget>[
+                      Text("Verb & Noun",
+                        style: TextStyle(
+                          foreground: Paint()
+                            ..style = PaintingStyle.stroke
+                            ..strokeWidth = 2
+                            ..color = Colors.blue,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 20,
+                        ),
+                      ),
+                      Text(
+                        "Verb & Noun",
+                        style: TextStyle(
+                          fontSize: 20,
+                          color:  Colors.white,
+                        ),
+                      )
+                    ],
+                  ),
+                  subtitle: Text('Get pairs of verbs & nouns'),
                   onTap: () => pressButton("/verb&noun/"),
 
                 ),
-              ),
+              ),),
               Card(
-                color: Colors.amberAccent,
-                child: ListTile(
-                  title: Text('Verb & Adverb'),
-                  subtitle: Text('Get random pair verbs & adverbs'),
+                shadowColor: Colors.white,
+                color: Colors.blue,
+                child:
+                Center(
+                  child:
+                ListTile(
+                  title: Stack(
+                    children: <Widget>[
+                      Text("Verb & Adverb",
+                        style: TextStyle(
+                          foreground: Paint()
+                            ..style = PaintingStyle.stroke
+                            ..strokeWidth = 2
+                            ..color = Colors.blue,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 20,
+                        ),
+                      ),
+                      Text(
+                        "Verb & Adverb",
+                        style: TextStyle(
+                          fontSize: 20,
+                          color:  Colors.white,
+                        ),
+                      )
+                    ],
+                  ),
+                  subtitle: Text('Get pairs of verbs & adverbs'),
                   onTap: () => pressButton("/verb&adverb/"),
                 ),
-              ),
+                ),),
               Card(
-                color: Colors.amber,
-                child: ListTile(
-                  title: Text('Noun & Noun'),
-                  subtitle: Text('Get random pair nouns & nouns'),
+                shadowColor: Colors.white,
+                color: Colors.blue,
+                child:
+                Center(
+                  child:
+                ListTile(
+                  title: Stack(
+                    children: <Widget>[
+                      Text("Noun & Noun",
+                        style: TextStyle(
+                          foreground: Paint()
+                            ..style = PaintingStyle.stroke
+                            ..strokeWidth = 2
+                            ..color = Colors.blue,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 20,
+                        ),
+                      ),
+                      Text(
+                        "Noun & Noun",
+                        style: TextStyle(
+                          fontSize: 20,
+                          color:  Colors.white,
+                        ),
+                      )
+                    ],
+                  ),
+                  subtitle: Text('Get pairs of nouns'),
                 ),
-              )
+              ),),
 
         ],
       ),
     );
   }
 
-  Widget buildCreativeButtons(){
+  Container _myAppBar(){
+    return Container(
 
+            height: 200,
+           color: Colors.black,
+          /* decoration: BoxDecoration(
+             image: DecorationImage(
+               image: AssetImage("assets/images/top.jpg"),
+               fit: BoxFit.cover,
+             )
+           ),*/
+          child:
+              Center(
+    child:
+            Column(
+              
+              children: [
+                  Spacer(),
+                  Stack(
+                    children: <Widget>[
+                      Text("Game of WORDS",
+                      style: TextStyle(
+                        foreground: Paint()
+                        ..style = PaintingStyle.stroke
+                        ..strokeWidth = 2
+                        ..color = Colors.blue[700],
+                        fontWeight: FontWeight.bold,
+                        fontSize: 40,
+                      ),
+                      ),
+                      Text(
+                        "Game of WORDS",
+                        style: TextStyle(
+                          fontSize: 40,
+                          color:  Colors.black,
+                        ),
+                      )
+                    ],
+                  ),
+
+                  Container(
+                    margin: const EdgeInsets.all(15),
+
+                    child:
+                  TextField(
+                    style: TextStyle(color: Colors.white),
+                    decoration: InputDecoration(
+                      border: OutlineInputBorder(),
+                      labelText: "Only one word",
+                      hintStyle: TextStyle(color: Colors.white),
+
+                      fillColor: Colors.indigo.withOpacity(0.4),
+                      filled: true,
+
+
+                    ),
+                  ),
+                  ),
+                    Container(
+                      margin: const EdgeInsets.all(5),
+                      child:
+                    Text(" -          20         + ",
+                    style: TextStyle(color: Colors.orange, fontSize: 20,),)
+                    ),
+              ],
+            ),
+              ),
+         );
+  }
+
+  Expanded _getContent(){
+    return Expanded(
+      child:
+      Container(
+        margin: const EdgeInsets.all(5),
+        color: Colors.black,
+        child:
+        ListView.builder(
+          padding: const EdgeInsets.all(8),
+          itemCount: list.length,
+          itemBuilder: (BuildContext context, int index){
+            return Container(
+              height: 35,
+              child: Center(
+                child: Text('${list[index]}',
+                  style: TextStyle(
+                    color: Colors.white,
+                  ),
+                ),
+              ),
+            );
+          },
+        ),
+      ),
+    );
   }
 
   @override
   Widget build(BuildContext context) {
 
-    SystemChrome.setPreferredOrientations([
-      DeviceOrientation.landscapeLeft,
-      DeviceOrientation.landscapeRight,
-    ]);
+    SystemChrome.setPreferredOrientations([DeviceOrientation.portraitDown,DeviceOrientation.portraitUp]);
 
     return MaterialApp(
-      title: "Game of words",
-      home: Scaffold(
-        appBar: AppBar(
-          backgroundColor: Colors.green,
-          title: Text('Game of words'),
-        ),
+        title: "Game of words",
+        debugShowCheckedModeBanner: false,
+        home:
+        Scaffold(
 
-        body: Center(
-          child: Row(
-            children: [
-              _buildButtons(),
-              Expanded(
-                child:
-                ListView.builder(
-                    padding: const EdgeInsets.all(8),
-                    itemCount: list.length,
-                    itemBuilder: (BuildContext context, int index){
-                      return Container(
-                        height: 30,
-                        child: Center(
-                          child: Text('${list[index]}'),
-                        ),
-                      );
-                    },
-                ),
+          body:
+          Container(
+            color: Colors.black,
+            child:
+            Center(
+
+              child:
+              Column(
+                children: <Widget> [
+                  _myAppBar(),
+                  _getContent(),
+                  Divider(),
+                  _buildButtons(),
+                ],
               ),
-            ],
+            ),
           ),
         ),
-
-
-
-      ),
-
-
-
-    );
-
+      );
   }
 }
