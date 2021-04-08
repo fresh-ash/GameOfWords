@@ -3,7 +3,7 @@
 A new Flutter application.
 
 
-![Screenshot]()
+![Screenshot](https://github.com/fresh-ash/GameOfWords/blob/master/Screenshot_20200828-223849.png)
 
 ## Getting Started
 
