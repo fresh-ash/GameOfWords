@@ -3,7 +3,7 @@
 A new Flutter application.
 
 
-![Screenshot](/media/ss/3E84CE1484CDCE99/Users/ss/Desktop/Screenshot_20200828-223849.png)
+![Screenshot]()
 
 ## Getting Started
 
